@@ -1,0 +1,10 @@
+<div id="sidenav-wrapper">
+    <div id="userinfo">
+        <span>{{ user.username }}</span><i class="material-icons">keyboard_arrow_down</i>
+    </div>
+    <div id="sidenav">
+        <ul>
+            <li *ngFor="let route of navRoutes" (click)="navigate($event, route)" [class.active]="route.name==selected">{{ route.name }}</li>
+        </ul>
+    </div>
+</div>

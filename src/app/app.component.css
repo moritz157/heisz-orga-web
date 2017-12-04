@@ -1,0 +1,29 @@
+#main-wrapper {
+
+}
+
+#content {
+    position: fixed;
+    left: 190px;
+    width: calc(100% - 210px);
+    padding: 10px;
+    background-color: #efefef;
+    height: 100%;
+}
+
+sidenav {
+    height: 100%;
+    position: fixed;
+    width: 190px;
+}
+
+
+@media (max-width: 500px) {
+    sidenav {
+        display: none;
+    }
+
+    #content {
+        left: 0px;
+    }
+}

@@ -1,0 +1,39 @@
+div#sidenav-wrapper {
+    background-color: #37474f;
+    color: white;
+    height: 100%;
+}
+
+#sidenav ul {
+    list-style-type: none;
+    padding: 0px;
+    position: relative;
+    top: -10px;
+}
+
+#sidenav-wrapper #userinfo {
+    padding: 15px;
+    border-bottom: 1px solid rgb(202, 202, 202);
+    display: flex;
+    justify-content: space-between;
+}
+
+#sidenav-wrapper #userinfo span {
+    top: 2px;
+    position: relative;
+}
+
+#sidenav-wrapper #userinfo i {
+    cursor: pointer;
+}
+
+#sidenav ul li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+#sidenav ul li.active {
+    font-weight: bold;
+}

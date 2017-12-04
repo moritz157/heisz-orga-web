@@ -1,0 +1,36 @@
+<div *ngIf="nextEvent" class="card">
+    <h3 class="card-title">Nächster Termin</h3>
+    <h3>{{ nextEvent.date }}: {{ nextEvent.name}}</h3>
+</div>
+<div class="card" id="mails">
+    <h3 class="card-title">{{ mails.length }} Ungelesene Mails</h3>
+    <div *ngFor="let mail of mails" (click)="openMail(mail)">
+        <div class="from span">{{ mail.cut ? mail.cut : mail.from }}</div> 
+        <div class="subject span">{{ mail.subject }}</div>
+    </div>
+</div>
+<div class="card" id="finArticles">
+    <h3 class="card-title">Artikel</h3>
+    <canvas baseChart
+    [data]="doughnutChartData"
+    [labels]="doughnutChartLabels"
+    [chartType]="doughnutChartType"
+    [colors]="doughnutChartColors"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"></canvas>
+    
+</div>
+<div class="card" id="accounting">
+    <h3 class="card-title">Buchhaltung</h3>
+    Momentaner Kontostand: {{ accounting.money }}
+    <canvas baseChart width="400" height="400"
+    [datasets]="lineChartData"
+    [labels]="lineChartLabels"
+    [options]="lineChartOptions"
+    [colors]="lineChartColors"
+    [legend]="lineChartLegend"
+    [chartType]="lineChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"></canvas>
+    
+</div>
