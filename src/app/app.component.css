@@ -18,6 +18,9 @@ sidenav {
     width: 190px;
 }
 
+#mobile-menu {
+    display: none;
+}
 
 @media (max-width: 500px) {
     sidenav {
@@ -26,5 +29,25 @@ sidenav {
 
     #content {
         left: 0px;
+        width: 100%;
+    }
+
+    #mobile-menu {
+        display: flex;
+        background-color: #37474f;
+        color: white;
+        padding-left: 10px;
+    }
+
+    #mobile-menu i {
+        top: 16px;
+        position: relative;
+        margin-right: 0px;
+    }
+
+    #mobile-menu h3 {
+        font-weight: normal;
+        font-size: 1.5em;
+        margin: 14px;
     }
 }
