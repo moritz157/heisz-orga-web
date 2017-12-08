@@ -1,0 +1,15 @@
+.card {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-right: 0px !important;
+}
+
+#buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 9px;
+}
+
+button {
+    margin: 5px;
+}

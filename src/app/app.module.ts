@@ -13,9 +13,14 @@ import { ArticlesComponent } from './articles/articles.component';
 import { EventsComponent } from './events/events.component';
 import { MailsComponent } from './mails/mails.component';
 import { AccountingComponent } from './accounting/accounting.component';
+import { NewBookingComponent } from './accounting/newBooking.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
+
 import { ChartsModule } from 'ng2-charts';
 
+import { AccountingService } from './accounting/accounting.service';
+
+import { OrderByPipe } from './pipes/orderBy.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +31,9 @@ import { ChartsModule } from 'ng2-charts';
     EventsComponent,
     MailsComponent,
     AccountingComponent,
-    SubscriptionsComponent
+    NewBookingComponent,
+    SubscriptionsComponent,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,10 @@ import { ChartsModule } from 'ng2-charts';
     AppRoutingModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [
+    AccountingService,
+    OrderByPipe
+  ],
   bootstrap: [AppComponent, NavComponent]
 })
 export class AppModule { }

@@ -4,19 +4,7 @@ body {
     font-family: Ubuntu;
 }
 
-dashboard {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
-
-articles {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
-
-mails {
+dashboard, articles, events, mails, accounting, subscriptions, newbooking {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -59,4 +47,34 @@ mails {
 .card#mails div.from {
     width: 11.5em;
     overflow: hidden;
+}
+
+label {
+    margin-right: 7px;
+}
+
+input, select {
+    outline: none !important;
+    border: 1px solid #dedede;
+    border-radius: 1px;
+    box-shadow: 0px 0px 6px 0px #80808021;
+    padding: 4px;
+    margin: 2px;
+}
+
+button {
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 9px;
+    font-weight: bold;
+    box-shadow: 0px 0px 9px 0px #efefef;
+}
+
+button.save {
+    background-color: #42a5f5;
+}
+
+button.cancel {
+    background-color: #c5c5c5
 }

@@ -1,0 +1,9 @@
+table {
+    border-spacing: 9px;
+}
+
+.card:not(#chart) {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-right: 0px !important;
+}

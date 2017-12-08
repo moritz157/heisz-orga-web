@@ -7,6 +7,7 @@ import { EventsComponent } from '../events/events.component';
 import { MailsComponent } from '../mails/mails.component';
 import { AccountingComponent } from '../accounting/accounting.component';
 import { SubscriptionsComponent } from '../subscriptions/subscriptions.component';
+import { NewBookingComponent } from '../accounting/newBooking.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'events', component: EventsComponent },
   { path: 'mails', component: MailsComponent },
   { path: 'accounting', component: AccountingComponent },
+  { path: 'newBooking', component: NewBookingComponent },
   { path: 'subscriptions', component: SubscriptionsComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '**', component: SinkComponent }

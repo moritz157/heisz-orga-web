@@ -1,0 +1,23 @@
+<div class="card" id="new-booking-main">
+    <h3 class="card-title">Neue Buchung</h3>
+    <div style="margin-top: 8px">
+        <label>Betreff:</label>
+        <input type="text"><br/>
+        <label>Von:</label>
+        <select>
+            <option *ngFor="let company of companys">{{ company.name }}</option>
+        </select><br/>
+        <label>An:</label>
+        <select>
+            <option *ngFor="let company of companys">{{ company.name }}</option>
+        </select><br/>
+        <label>Betrag:</label>
+        <input type="number"><br/>
+        <label>Datum:</label>
+        <input type="date"><br/>
+        <div id="buttons">
+            <button class="cancel">Abbrechen</button>
+            <button class="save">Speichern</button>
+        </div>
+    </div>
+</div>

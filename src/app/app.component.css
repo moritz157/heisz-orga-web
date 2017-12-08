@@ -9,6 +9,7 @@
     padding: 10px;
     background-color: #efefef;
     height: 100%;
+    overflow-y: scroll;
 }
 
 sidenav {

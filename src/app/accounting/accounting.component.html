@@ -1,1 +1,30 @@
-Buchhaltung
+<div class="card" id="accounting-main">
+    <h3 class="card-title">Buchhaltung</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Datum</th>
+            <th>Von</th>
+            <th>An</th>
+            <th>Betrag in €</th>
+        </tr>
+        <tr *ngFor="let booking of bookings | orderBy:'date':'DESC'" (click)="openBooking(booking)">
+            <td>{{ booking.id }}</td>
+            <td>{{ booking.date | date:'dd.MM.yy' }}</td>
+            <td>{{ booking.creditor.name }}</td>
+            <td>{{ booking.debtor.name }}</td>
+            <td>{{ booking.amount }}</td>
+        </tr>
+    </table>
+</div>
+<div class="card" id="chart">
+    <h3 class="card-title">Buchhaltung</h3>
+    Momentaner Kontostand: {{ lineChartData[0].data[lineChartData[0].data.length-1] }} €
+    <canvas baseChart width="40" height="40"
+    [datasets]="lineChartData"
+    [labels]="lineChartLabels"
+    [options]="lineChartOptions"
+    [colors]="lineChartColors"
+    [legend]="lineChartLegend"
+    [chartType]="lineChartType"></canvas>
+</div>
