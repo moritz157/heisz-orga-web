@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'mails', component: MailsComponent },
   { path: 'accounting', component: AccountingComponent },
   { path: 'newBooking', component: NewBookingComponent },
+  { path: 'booking/:id', component: NewBookingComponent },
   { path: 'subscriptions', component: SubscriptionsComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '**', component: SinkComponent }

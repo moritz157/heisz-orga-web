@@ -13,6 +13,16 @@ export class AccountingComponent{
   private bookings: Booking[];
   private companys: Company[];
 
+  private orderById=0;
+  private orderByData = [
+    {"name": "date", "dir":"DESC"},
+    {"name": "date", "dir":"ASC"},
+    {"name": "subject", "dir":"ASC"},
+    {"name": "subject", "dir":"DESC"},
+    {"name": "amount", "dir":"ASC"},
+    {"name": "amount", "dir":"DESC"},
+  ]
+
   public lineChartData:Array<any> = [
     {data: [65, 65, 85.25, 126.36, 104.26, 137.26, 169.35], label: 'Kontostand in €'},
   ];
@@ -48,6 +58,10 @@ export class AccountingComponent{
       this.chart.chart.update();
       console.log(this.chart);
     });
+  }
+
+  openBooking(booking) {
+    console.log(booking);
   }
 }
 

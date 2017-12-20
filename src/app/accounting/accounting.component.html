@@ -1,18 +1,32 @@
 <div class="card" id="accounting-main">
     <h3 class="card-title">Buchhaltung</h3>
+    <div class="card-actions">
+        <button class="outline primary" routerLink="/newBooking">Neue Buchung</button>    
+        <label>Sortieren nach</label>
+        <select [(ngModel)]="orderById">
+            <option selected value='0'>Datum (neueste zuerst)</option>
+            <option value='1'>Datum (älteste zuerst)</option>    
+            <option value='2'>Betreff (A-Z)</option>    
+            <option value='3'>Betreff (Z-A)</option>  
+            <option value='4'>Betrag (aufsteigend)</option>    
+            <option value='5'>Betrag (absteigend)</option>        
+        </select> 
+    </div>
     <table>
         <tr>
             <th>ID</th>
             <th>Datum</th>
             <th>Von</th>
             <th>An</th>
+            <th>Betreff</th>
             <th>Betrag in €</th>
         </tr>
-        <tr *ngFor="let booking of bookings | orderBy:'date':'DESC'" (click)="openBooking(booking)">
+        <tr *ngFor="let booking of bookings | orderBy:orderByData[orderById].name:orderByData[orderById].dir" (click)="openBooking(booking)">
             <td>{{ booking.id }}</td>
             <td>{{ booking.date | date:'dd.MM.yy' }}</td>
             <td>{{ booking.creditor.name }}</td>
             <td>{{ booking.debtor.name }}</td>
+            <td>{{ booking.subject }}</td>
             <td>{{ booking.amount }}</td>
         </tr>
     </table>

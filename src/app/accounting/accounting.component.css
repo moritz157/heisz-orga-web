@@ -1,9 +1,21 @@
 table {
-    border-spacing: 9px;
+    border-spacing: 0px;
+}
+
+td {
+    padding: 7px;
+}
+
+tr:not(:first-child):hover {
+    background-color: #dadada;
 }
 
 .card:not(#chart) {
     max-width: 100% !important;
     width: 100% !important;
     margin-right: 0px !important;
+}
+
+.card:first-child {
+    margin-top: 0px !important;
 }

@@ -30,6 +30,18 @@ dashboard, articles, events, mails, accounting, subscriptions, newbooking {
     color: #777777;
 }
 
+.card .card-actions {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.card .card-actions label {
+    padding-top: 9px;
+    font-size: 13.3333px;
+}
+
 .card#mails div:not(.span) {
     position: relative;
     top: 5px;
@@ -63,18 +75,90 @@ input, select {
 }
 
 button {
-    color: white;
     border: none;
     border-radius: 4px;
     padding: 9px;
     font-weight: bold;
     box-shadow: 0px 0px 9px 0px #efefef;
+    outline: none;
+    cursor: pointer;
 }
 
-button.save {
+button:not(.outline){
+    color: white !important;
+}
+
+button.save, button.primary {
     background-color: #42a5f5;
+    border-color: #42a5f5;
+    color: #42a5f5;
 }
 
 button.cancel {
     background-color: #c5c5c5
+}
+
+button.outline {
+    /*border: 1px solid !important;*/
+    box-shadow: none;
+    background-color: transparent !important;
+}
+
+#content {
+    position: fixed;
+    left: 190px;
+    width: calc(100% - 190px);
+    padding: 0px;
+    background-color: #efefef;
+    height: 100%;
+    overflow-y: auto;
+}
+
+#content-inner {
+    padding: 10px;
+}
+
+sidenav {
+    height: 100%;
+    position: fixed;
+    width: 190px;
+}
+
+#mobile-menu {
+    display: none;
+}
+
+
+@media (max-width: 500px) {
+    sidenav {
+        display: none;
+    }
+
+    #content {
+        left: 0px !important;
+        width: 100% !important;
+    }
+
+    #mobile-menu {
+        display: flex !important;
+        background-color: #37474f;
+        color: white;
+        padding-left: 10px;
+    }
+
+    #mobile-menu i {
+        top: 16px;
+        position: relative;
+        margin-right: 0px;
+    }
+
+    #mobile-menu h3 {
+        font-weight: normal;
+        font-size: 1.5em;
+        margin: 14px;
+    }
+
+    .card .card-actions {
+        flex-direction: column;
+    }
 }

@@ -119,6 +119,25 @@ export class AccountingService {
         });
     }
 
+    getBooking(id: Number): Promise<Booking>{
+      var that = this;
+      return new Promise(function(resolve, reject){
+
+        that.getBookings()
+        .then((bookings) => {
+
+          for(var i=0;i<bookings.length;i++){
+            if(bookings[i].id==id){
+              resolve(bookings[i]);
+            }
+          }
+          console.log("Not found");
+          resolve(undefined);
+        })
+        .catch((err) => {reject(err)});
+      })
+    }
+
     calculateMonthlyBalances(input): Object{
       const monthNames: String[] = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
       var orderedInput = this.orderByPipe.transform(input, "date", "ASC");
