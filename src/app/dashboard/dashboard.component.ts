@@ -7,8 +7,19 @@ import { ChartsModule } from 'ng2-charts';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent{
+  public user = {"name":"Moritz", "surname":"Ahrens"}
   public accounting = {money: "321,57 €"};
-  nextEvent: Object = {name: "Heiligabend", date: "24.12.2017"}  
+  tasks: Object[] = [
+    {"color":"#f44336", "name":"Gesamtlayout machen"},
+    {"color":"#4caf50", "name":"Plakate gestalten"},
+    {"color":"#2196f3", "name":"Plakate gestalten"},
+    {"color":"#ffeb3b", "name":"Plakate gestalten"},
+    {"color":"#ffa726", "name":"Plakate gestalten"},
+  ]
+  nextEvents: Object[] = [
+    {name: "Heiligabend", date: "24.12.2017"},
+    {name: "Heiligabend", date: "24.12.2017"}
+  ];
   mails: Object[] = [
     {from:"Matthias Hansen ab cdefghijklmnop", subject: "Schülerzeitung: Terminänderung"},
     {from:"Matthias Hansen", subject: "Fwd: Druck"}

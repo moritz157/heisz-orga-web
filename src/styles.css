@@ -12,12 +12,37 @@ dashboard, articles, events, mails, accounting, subscriptions, newbooking {
 
 .card {
     background-color: white;
-    box-shadow: 0px 0px 5px 0px #c1c1c1;
+    box-shadow: 0px 0px 20px 8px #c1c1c112;
     padding: 8px;
     border-radius: 2px;
-    max-width: 28em;
     margin-right: 8px;
     margin-top: 8px;
+}
+
+.card .more {
+    color: blue;
+    text-decoration: none;
+    padding-left: 5px;
+}
+
+.card-wrapper {
+    margin-top: 25px;
+}
+
+.card-wrapper.w50 {
+    width: 50%;
+}
+
+.card-wrapper.h7 .card {
+    height: 7em;
+}
+
+.card-wrapper.h13 .card {
+    height: 13em;
+}
+
+.card-wrapper.w100 {
+    width: 100%;
 }
 
 .card h3 {
@@ -44,11 +69,15 @@ dashboard, articles, events, mails, accounting, subscriptions, newbooking {
 
 .card#mails div:not(.span) {
     position: relative;
-    top: 5px;
+    top: 0px;
     padding-top: 3px;
     padding-bottom: 3px;
     border-top: 1px solid #dadada;
     cursor: pointer;
+}
+
+.card#mails div:first-child:not(.span){
+    border-top: 0px !important;
 }
 
 .card#mails div .span {
@@ -59,6 +88,38 @@ dashboard, articles, events, mails, accounting, subscriptions, newbooking {
 .card#mails div.from {
     width: 11.5em;
     overflow: hidden;
+}
+
+.card div.event {
+    padding: 5px;
+}
+
+.card div.task {
+    margin-bottom: 8px;
+}
+
+.card div.task div.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+}
+
+.card div.task h4 {
+    display: inline-block;
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+#tasks a.more {
+    top: 15px;
+    position: relative;
+}
+
+.card div.event:not(:first-child){
+    border-top: 1px solid #cacaca;
 }
 
 label {
@@ -109,14 +170,17 @@ button.outline {
     left: 190px;
     width: calc(100% - 190px);
     padding: 0px;
-    background-color: white;
+    background-color: #fdfdfd;
     height: 100%;
     overflow-y: auto;
     box-shadow: 2px 0px 20px 0px #80808017;
 }
 
 #content-inner {
-    padding: 10px;
+    padding-top: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-bottom: 18px;
 }
 
 sidenav {
