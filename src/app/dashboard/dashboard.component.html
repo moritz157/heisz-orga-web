@@ -47,6 +47,7 @@
         [labels]="doughnutChartLabels"
         [chartType]="doughnutChartType"
         [colors]="doughnutChartColors"
+        [options]="doughnutChartOptions"
         (chartHover)="chartHovered($event)"
         (chartClick)="chartClicked($event)"></canvas>
         
@@ -56,15 +57,17 @@
     <h3 class="card-title">Buchhaltung</h3>
     <div class="card" id="accounting">
         Momentaner Kontostand: {{ accounting.money }}
-        <canvas baseChart width="400" height="270px"
-        [datasets]="lineChartData"
-        [labels]="lineChartLabels"
-        [options]="lineChartOptions"
-        [colors]="lineChartColors"
-        [legend]="lineChartLegend"
-        [chartType]="lineChartType"
-        (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)"></canvas>
+        <div id="lineChartWrapper">
+            <canvas style="position: relative;" baseChart width="400" height="240px"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+        </div>
         
     </div>
 </div>

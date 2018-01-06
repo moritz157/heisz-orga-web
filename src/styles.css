@@ -33,16 +33,16 @@ dashboard, articles, events, mails, accounting, subscriptions, newbooking {
     width: 50%;
 }
 
+.card-wrapper.w100 {
+    width: 100%;
+}
+
 .card-wrapper.h7 .card {
     height: 7em;
 }
 
 .card-wrapper.h13 .card {
-    height: 13em;
-}
-
-.card-wrapper.w100 {
-    width: 100%;
+    height: 13.8em;
 }
 
 .card h3 {
@@ -193,8 +193,12 @@ sidenav {
     display: none;
 }
 
+#lineChartWrapper {
+    position: relative;
+    max-height: 13em;
+}
 
-@media (max-width: 500px) {
+@media (max-width: 672px) {
     sidenav {
         display: none;
     }
@@ -204,7 +208,7 @@ sidenav {
         width: 100% !important;
     }
 
-    #mobile-menu {
+    /*#mobile-menu {
         display: flex !important;
         background-color: #37474f;
         color: white;
@@ -221,9 +225,17 @@ sidenav {
         font-weight: normal;
         font-size: 1.5em;
         margin: 14px;
-    }
+    }*/
 
     .card .card-actions {
         flex-direction: column;
+    }
+
+    .card-wrapper.w50 {
+        width: 100%;
+    }
+    
+    .card-wrapper.w100 {
+        width: 100%;
     }
 }

@@ -44,7 +44,11 @@ export class DashboardComponent{
   public doughnutChartColors:any[] = [{
     backgroundColor: ['#f1c232', '#5ecb30', '#5ecb30', '#499b26', '#cc0000']
   }];
-  
+  public doughnutChartOptions:any = {
+    responsive: true,
+    maintainAspectRatio: false
+  };  
+
   // events
   public chartClicked(e:any):void {
     console.log(e);
@@ -59,7 +63,8 @@ export class DashboardComponent{
   ];
   public lineChartLabels:Array<any> = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli'];
   public lineChartOptions:any = {
-    responsive: true
+    responsive: true,
+    maintainAspectRatio: false
   };
   public lineChartColors:Array<any> = [
     { // grey
