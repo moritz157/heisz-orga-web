@@ -109,9 +109,10 @@ button.outline {
     left: 190px;
     width: calc(100% - 190px);
     padding: 0px;
-    background-color: #efefef;
+    background-color: white;
     height: 100%;
     overflow-y: auto;
+    box-shadow: 2px 0px 20px 0px #80808017;
 }
 
 #content-inner {

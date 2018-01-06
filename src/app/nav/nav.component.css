@@ -1,6 +1,6 @@
 div#sidenav-wrapper {
-    background-color: #37474f;
-    color: white;
+    background: linear-gradient(to top right, #ffffff, #ffcfa32b);
+    color: #87868e;
     height: 100%;
 }
 
@@ -8,23 +8,25 @@ div#sidenav-wrapper {
     list-style-type: none;
     padding: 0px;
     position: relative;
-    top: -10px;
+    margin-top: 40px;
 }
 
 #sidenav-wrapper #userinfo {
     padding: 15px;
-    border-bottom: 1px solid rgb(202, 202, 202);
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
 }
 
 #sidenav-wrapper #userinfo span {
-    top: 2px;
-    position: relative;
+    margin-top: 13px;
 }
 
-#sidenav-wrapper #userinfo i {
-    cursor: pointer;
+#sidenav-wrapper #userinfo .avatar {
+    height: 67px;
+    width: 67px;
+    border-radius: 50px;
+    margin-top: 22px;
 }
 
 #sidenav ul li {
@@ -36,4 +38,5 @@ div#sidenav-wrapper {
 
 #sidenav ul li.active {
     font-weight: bold;
+    color: black;
 }
