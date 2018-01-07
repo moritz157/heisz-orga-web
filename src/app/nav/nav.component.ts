@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class NavComponent{
   user: Object = {"username": "test1", "avatar":"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"};
-  navRoutes: Object[] = [{name: "Dashboard", path: "dashboard"}, {name: "Artikel", path: "articles"}, {name: "Termine", path: "events"}, {name: "Mails", path: "mails"}, {name: "Buchhaltung", path: "accounting"}, {name: "Abosystem", path: "subscriptions"}];
-  selected="Dashboard";
+  navRoutes: Object[] = [{name: "Home", path: "dashboard", mobile: true, icon: "home"}, {name: "Artikel", path: "articles", mobile: true, icon: "create"}, {name: "Termine", path: "events", mobile: true, icon: "event"}, {name: "Mails", path: "mails", mobile: true, icon: "mail"}, {name: "Buchhaltung", path: "accounting", mobile: true, icon: "attach_money"}, {name: "Abosystem", path: "subscriptions", mobile: false, icon: "group"}, {name: "Einstellungen", path: "settings", mobile: true, icon: "settings"}, {name: "Abmelden", path: "logout", mobile: false, icon: "exit_to_app"}];
+  selected="Home";
 
   constructor(private router: Router){
 

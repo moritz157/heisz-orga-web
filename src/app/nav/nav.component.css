@@ -34,6 +34,13 @@ div#sidenav-wrapper {
     padding-bottom: 10px;
     padding-left: 15px;
     cursor: pointer;
+    display: flex;
+}
+
+#sidenav ul li i {
+    top: -3px;
+    margin-right: 6px;
+    position: relative;
 }
 
 #sidenav ul li.active {
