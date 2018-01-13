@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Booking, Invoice, Company } from './accounting.component';
+//import { Booking, Invoice, Company } from './accounting.component';
 import { OrderByPipe } from '../pipes/orderBy.pipe';
 
 @Injectable()
@@ -182,4 +182,34 @@ export class AccountingService {
     isOutgoingBooking(booking){
       return booking['creditor']['id']==1;
     }
+}
+
+export class Booking {
+  constructor(public subject: String, public debtor: Company, public creditor: Company, public amount: Number, public date: Date, public id?: Number){
+
+  }
+
+  save(): Promise<{}> {
+    return new Promise(function(resolve, reject){
+      resolve({success: true, error: ''});
+    });
+  }
+}
+
+export class Invoice {
+  constructor(public debtor: Number, public amount: Number, public id?: Number){
+    
+  }
+
+  save(): Promise<{}> {
+    return new Promise(function(resolve, reject){
+      resolve({success: true, error: ''});
+    });
+  }
+}
+
+export class Company {
+  constructor(public name: String, public adress: String, public id?: Number){
+
+  }
 }

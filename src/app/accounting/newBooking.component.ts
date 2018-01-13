@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountingService, } from './accounting.service';
-import { AccountingComponent, Booking } from 'app/accounting/accounting.component';
+import { AccountingService, Booking } from './accounting.service';
+import { AccountingComponent } from 'app/accounting/accounting.component';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

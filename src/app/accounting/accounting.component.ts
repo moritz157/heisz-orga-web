@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { AccountingService } from './accounting.service';
+import { AccountingService, Booking, Company, Invoice } from './accounting.service';
 import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 
 @Component({
@@ -69,32 +69,3 @@ export class AccountingComponent implements OnInit{
   }
 }
 
-export class Booking {
-  constructor(public subject: String, public debtor: Company, public creditor: Company, public amount: Number, public date: Date, public id?: Number){
-
-  }
-
-  save(): Promise<{}> {
-    return new Promise(function(resolve, reject){
-      resolve({success: true, error: ''});
-    });
-  }
-}
-
-export class Invoice {
-  constructor(public debtor: Number, public amount: Number, public id?: Number){
-    
-  }
-
-  save(): Promise<{}> {
-    return new Promise(function(resolve, reject){
-      resolve({success: true, error: ''});
-    });
-  }
-}
-
-export class Company {
-  constructor(public name: String, public adress: String, public id?: Number){
-
-  }
-}
