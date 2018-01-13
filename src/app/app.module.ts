@@ -15,10 +15,12 @@ import { MailsComponent } from './mails/mails.component';
 import { AccountingComponent } from './accounting/accounting.component';
 import { NewBookingComponent } from './accounting/newBooking.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
+import { LoginComponent } from './login/login.component';
 
 import { ChartsModule } from 'ng2-charts';
 
 import { AccountingService } from './accounting/accounting.service';
+import { AuthService } from './services/auth.service';
 
 import { OrderByPipe } from './pipes/orderBy.pipe';
 @NgModule({
@@ -33,6 +35,7 @@ import { OrderByPipe } from './pipes/orderBy.pipe';
     AccountingComponent,
     NewBookingComponent,
     SubscriptionsComponent,
+    LoginComponent,
     OrderByPipe
   ],
   imports: [
@@ -44,8 +47,9 @@ import { OrderByPipe } from './pipes/orderBy.pipe';
   ],
   providers: [
     AccountingService,
-    OrderByPipe
+    OrderByPipe,
+    AuthService
   ],
-  bootstrap: [AppComponent, NavComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

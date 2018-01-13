@@ -8,6 +8,7 @@ import { MailsComponent } from '../mails/mails.component';
 import { AccountingComponent } from '../accounting/accounting.component';
 import { SubscriptionsComponent } from '../subscriptions/subscriptions.component';
 import { NewBookingComponent } from '../accounting/newBooking.component';
+import { LoginComponent } from 'app/login/login.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'newBooking', component: NewBookingComponent },
   { path: 'booking/:id', component: NewBookingComponent },
   { path: 'subscriptions', component: SubscriptionsComponent },
+  { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '**', component: SinkComponent }
 ];

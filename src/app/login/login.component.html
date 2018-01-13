@@ -1,0 +1,16 @@
+<div id="login-wrapper">
+    <div id="login-inner">
+        <h1>Heisz Orga</h1>
+        <form>
+            <div class="form-input">
+                <i class="material-icons">mail</i>
+                <input [(ngModel)]="username" type="text" placeholder="E-Mail" (focus)="scrollDown()" name="email">
+            </div>
+            <div class="form-input">
+                <i class="material-icons">lock</i>
+                <input [(ngModel)]="password" type="password" placeholder="Passwort" (focus)="scrollDown()" name="password">
+            </div>
+            <button (click)="login()">Login</button>
+        </form>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 <div id="main-wrapper">
-  <sidenav></sidenav>
-  
-  <div id="content">
+  <sidenav *ngIf="loggedIn"></sidenav>
+
+  <div id="content" [ngClass]="{'fullscreen':!loggedIn}">
     <div id="content-inner">
       <router-outlet></router-outlet>
     </div>  

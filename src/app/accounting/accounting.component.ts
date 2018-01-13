@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { AccountingService } from './accounting.service';
 import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 
@@ -8,7 +8,7 @@ import { BaseChartDirective } from 'ng2-charts/ng2-charts';
   styleUrls: ['./accounting.component.css'],
   providers: [AccountingService]
 })
-export class AccountingComponent{
+export class AccountingComponent implements OnInit{
   @ViewChild(BaseChartDirective) chart: BaseChartDirective;
   private bookings: Booking[];
   private companys: Company[];
@@ -45,18 +45,22 @@ export class AccountingComponent{
 
 
   constructor(private accountingService: AccountingService){
-    accountingService.getBookings()
+    
+  }
+
+  ngOnInit() {
+    this.accountingService.getBookings()
     .then((result) => {
+      console.log("This.chart:", this.chart);
       this.bookings = result;
       console.log(result);
-      var monthlyBalances = accountingService.calculateMonthlyBalances(result);
+      var monthlyBalances = this.accountingService.calculateMonthlyBalances(result);
       console.log(monthlyBalances);
       this.lineChartData = monthlyBalances['datasets'];
       this.lineChartLabels = monthlyBalances['labels'];           
       this.chart.chart.config.data.labels = monthlyBalances['labels'];
       this.chart.chart.config.data.datasets = monthlyBalances['datasets'];
       this.chart.chart.update();
-      console.log(this.chart);
     });
   }
 
