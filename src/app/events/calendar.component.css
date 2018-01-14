@@ -1,0 +1,48 @@
+#calendarMain {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#calendarControls {
+    display: flex;
+    justify-content: center;
+}
+
+#calendarControls span{
+    position: relative;
+    top: 3px;
+}
+
+#calendarControls i {
+    cursor: pointer;
+}
+
+.calendarDay {
+    position: relative;
+    width: calc(100% / 7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 27px;
+    cursor: pointer;
+}
+
+.calendarDay.header {
+    font-weight: bold;
+}
+
+.calendarDay.pre {
+    color: #00000061;
+}
+
+.calendarDay span {
+    min-width: 18px;
+    text-align: center;
+}
+
+.calendarDay.selected span {
+    background-color: #ff69b0;
+    border-radius: 19px;
+    padding: 6px;
+    color: white;
+}

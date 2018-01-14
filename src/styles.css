@@ -37,12 +37,24 @@ dashboard, articles, events, mails, accounting, subscriptions, newbooking {
     width: 100%;
 }
 
+.card-wrapper.w70 {
+    width: 70%;
+}
+
+.card-wrapper.w30 {
+    width: 30%;
+}
+
 .card-wrapper.h7 .card {
     height: 7em;
 }
 
 .card-wrapper.h13 .card {
     height: 13.8em;
+}
+
+.card-wrapper.h15 .card {
+    height: 15.8em;
 }
 
 .card h3 {
