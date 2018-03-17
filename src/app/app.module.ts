@@ -22,6 +22,7 @@ import { ChartsModule } from 'ng2-charts';
 
 import { AccountingService } from './accounting/accounting.service';
 import { AuthService } from './services/auth.service';
+import { EventService } from './services/event.service';
 
 import { OrderByPipe } from './pipes/orderBy.pipe';
 @NgModule({
@@ -50,7 +51,8 @@ import { OrderByPipe } from './pipes/orderBy.pipe';
   providers: [
     AccountingService,
     OrderByPipe,
-    AuthService
+    AuthService,
+    EventService
   ],
   bootstrap: [AppComponent]
 })

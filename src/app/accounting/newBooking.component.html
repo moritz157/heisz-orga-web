@@ -1,22 +1,22 @@
 <div class="card" id="new-booking-main">
-    <h3 class="card-title">Neue Buchung</h3>
+    <h3 class="card-title">{{ title }}</h3>
     <div *ngIf="ready" style="margin-top: 8px">
         <label>Betreff:</label>
-        <input type="text"><br/>
+        <input [(ngModel)]="booking.subject" type="text">
         <label>Von:</label>
-        <select [(ngModel)]="booking.creditor" >
+        <select [(ngModel)]="booking.creditor" [compareWith]="compareCompanys">
             <option *ngFor="let company of companys" [ngValue]="company">{{ company.name }}</option>
-        </select><br/>
+        </select>
         <label>An:</label>
         <select [(ngModel)]="booking.debtor" [compareWith]="compareCompanys">
             <option *ngFor="let company of companys" [ngValue]="company">{{ company.name }}</option>
-        </select><br/>
-        <label>Betrag:</label>
-        <input [(ngModel)]="booking.amount" type="number"><br/>
+        </select>
+        <label>Betrag (in €):</label>
+        <input [(ngModel)]="booking.amount" type="number">
         <label>Datum:</label>
-        <input [(ngModel)]="booking.date" type="date"><br/>
+        <input [ngModel]="booking.date | date:'yyyy-MM-dd'" (ngModelChange)="booking.date = $event" type="date">
         <div id="buttons">
-            <button class="cancel">Abbrechen</button>
+            <button class="cancel" (click)="cancel()">Abbrechen</button>
             <button class="save" (click)="save()">Speichern</button>
         </div>
     </div>

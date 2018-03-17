@@ -1,44 +1,78 @@
-<div class="card" id="accounting-main">
-    <h3 class="card-title">Buchhaltung</h3>
-    <div class="card-actions">
-        <button class="outline primary" routerLink="/newBooking">Neue Buchung</button>    
-        <label>Sortieren nach</label>
-        <select [(ngModel)]="orderById">
-            <option selected value='0'>Datum (neueste zuerst)</option>
-            <option value='1'>Datum (älteste zuerst)</option>    
-            <option value='2'>Betreff (A-Z)</option>    
-            <option value='3'>Betreff (Z-A)</option>  
-            <option value='4'>Betrag (aufsteigend)</option>    
-            <option value='5'>Betrag (absteigend)</option>        
-        </select> 
+<h1 class="page-title">Buchhaltung</h1>
+<div class="card-wrapper w100">
+    <h3 class="card-title">Buchungen</h3>
+    <div class="card" id="accounting-main">
+        <div class="card-actions">
+            <button class="outline primary" routerLink="/newBooking">Neue Buchung</button>    
+            <label>Sortieren nach</label>
+            <select [(ngModel)]="orderById">
+                <option selected value='0'>Datum (neueste zuerst)</option>
+                <option value='1'>Datum (älteste zuerst)</option>    
+                <option class="m-hide" value='2'>Betreff (A-Z)</option>    
+                <option class="m-hide" value='3'>Betreff (Z-A)</option>  
+                <option value='4'>Betrag (aufsteigend)</option>    
+                <option value='5'>Betrag (absteigend)</option>        
+            </select> 
+        </div>
+        <table>
+            <tr>
+                <th class="m-hide">ID</th>
+                <th>Datum</th>
+                <th>Von</th>
+                <th>An</th>
+                <th class="m-hide">Betreff</th>
+                <th>Betrag in €</th>
+            </tr>
+            <tr *ngFor="let booking of bookings | orderBy:orderByData[orderById].name:orderByData[orderById].dir" (click)="openBooking(booking)">
+                <td class="m-hide">{{ booking.id }}</td>
+                <td>{{ booking.date | date:'dd.MM.yy' }}</td>
+                <td>{{ booking.creditor.name }}</td>
+                <td>{{ booking.debtor.name }}</td>
+                <td class="m-hide">{{ booking.subject }}</td>
+                <td>{{ booking.amount }}</td>
+            </tr>
+        </table>
     </div>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Datum</th>
-            <th>Von</th>
-            <th>An</th>
-            <th>Betreff</th>
-            <th>Betrag in €</th>
-        </tr>
-        <tr *ngFor="let booking of bookings | orderBy:orderByData[orderById].name:orderByData[orderById].dir" (click)="openBooking(booking)">
-            <td>{{ booking.id }}</td>
-            <td>{{ booking.date | date:'dd.MM.yy' }}</td>
-            <td>{{ booking.creditor.name }}</td>
-            <td>{{ booking.debtor.name }}</td>
-            <td>{{ booking.subject }}</td>
-            <td>{{ booking.amount }}</td>
-        </tr>
-    </table>
 </div>
-<div class="card" id="chart">
-    <h3 class="card-title">Buchhaltung</h3>
-    Momentaner Kontostand: {{ lineChartData[0].data[lineChartData[0].data.length-1] }} €
-    <canvas baseChart width="40" height="40"
-    [datasets]="lineChartData"
-    [labels]="lineChartLabels"
-    [options]="lineChartOptions"
-    [colors]="lineChartColors"
-    [legend]="lineChartLegend"
-    [chartType]="lineChartType"></canvas>
+<div class="card-wrapper w50">
+    <h3 class="card-title">Kontostand</h3>
+    <div class="card" id="chart">
+        Momentaner Kontostand: {{ lineChartData[0].data[lineChartData[0].data.length-1] }} €
+        <canvas baseChart width="40" height="40"
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"></canvas>
+    </div>
+</div>
+<div class="card-wrapper w50">
+    <h3 class="card-title">Rechnungen</h3>
+    <div class="card" id="invoices">
+        <div class="card-actions">
+            <button class="outline primary" routerLink="/newInvoice">Rechnung erstellen</button>    
+            <label>Sortieren nach</label>
+            <select [(ngModel)]="orderById">
+                <option selected value='0'>Datum (neueste zuerst)</option>
+                <option value='1'>Datum (älteste zuerst)</option>     
+                <option value='4'>Betrag (aufsteigend)</option>    
+                <option value='5'>Betrag (absteigend)</option>        
+            </select> 
+        </div>
+        <table>
+            <tr>
+                <th class="m-hide">ID</th>
+                <th>Datum</th>
+                <th>An</th>
+                <th>Betrag in €</th>
+            </tr>
+            <tr *ngFor="let invoice of invoices | orderBy:orderByData[orderById].name:orderByData[orderById].dir" (click)="openInvoice(invoice)">
+                <td class="m-hide">{{ invoice.id }}</td>
+                <td>{{ invoice.date | date:'dd.MM.yy' }}</td>
+                <td>{{ invoice.debtor.name }}</td>
+                <td>{{ invoice.amount }}</td>
+            </tr>
+        </table>
+    </div>
 </div>

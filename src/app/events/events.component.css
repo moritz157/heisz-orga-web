@@ -1,0 +1,11 @@
+#nextEvents {
+    overflow-y: auto;
+}
+
+#calendar {
+    height: calc(100% - 1.17em - 24px);
+}
+
+.card-wrapper {
+    height: calc(100% - 25px);
+}

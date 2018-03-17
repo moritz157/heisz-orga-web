@@ -12,7 +12,6 @@ tr:not(:first-child):hover {
 
 .card:not(#chart) {
     max-width: 100% !important;
-    width: 100% !important;
     margin-right: 0px !important;
 }
 

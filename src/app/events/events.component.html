@@ -1,12 +1,15 @@
-<div class="card-wrapper w50 h15">
+<div class="card-wrapper w100">
     <h3 class="card-title">Kalender:</h3>
     <div class="card" id="calendar">
         <calendar></calendar>
     </div>
 </div>
-<div class="card-wrapper w50 h15">
+<div class="card-wrapper w50 h33" style="display: none">
     <h3 class="card-title">Nächste Termine:</h3>
     <div class="card" id="nextEvents">
-
+        <div class="event" *ngFor="let event of nextEvents">
+            <h4>{{ event.eventDateTime | date:'dd.MM.yyyy'}}: {{event.title}}</h4>
+            <p>{{event.description.substr(0, 64)}}<span *ngIf="event.description.length > 64">... <br><a href="#">Mehr</a></span></p>
+        </div>
     </div>
 </div>

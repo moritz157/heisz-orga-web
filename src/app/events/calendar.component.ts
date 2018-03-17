@@ -48,6 +48,7 @@ export class CalendarComponent implements OnInit{
             for(var i=0;i<preFields;i++){
                 this.fields.push({"pre":true,"date":daysMonthBefore-(preFields-i-1)});
             }
+            console.log("monthFields:", monthFields);
             for(var i=0;i<monthFields;i++){
                 this.fields.push({"pre":false,"date":i+1,"selected":false});
                 if(date.getDate() == i+1){
@@ -55,6 +56,15 @@ export class CalendarComponent implements OnInit{
 
                 }
             }
+            
+            var lastDateOfMonth: Date = date;
+            lastDateOfMonth.setDate(monthFields);
+            var tmpDate = lastDateOfMonth;
+            while(this.fields.length<42){
+                tmpDate.setDate(tmpDate.getDate() + 1);
+                this.fields.push({"pre":true,"date":tmpDate.getDate()});
+            }
+
             console.log("Fields:", this.fields);
             this.lastDate = new Date(date);
         }else if(this.lastDate && date.getMonth()===this.lastDate.getMonth() && date.getFullYear()===this.lastDate.getFullYear()){
@@ -70,6 +80,13 @@ export class CalendarComponent implements OnInit{
             console.log("Clearing fields")
             this.fields = [];
             this.generateFields();
+        }
+
+        if(this.fields.length>0){
+            var daysOfWeek = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
+            for(var i=0;i<daysOfWeek.length;i++){
+                this.fields[i]["dayOfWeek"] = daysOfWeek[i];
+            }
         }
     }
 
@@ -97,8 +114,16 @@ export class CalendarComponent implements OnInit{
 
     monthForward() {
         var tmp = this.date;
+        
+        if(tmp.getDate() == this.getDaysOfMonth(tmp.getFullYear(), tmp.getMonth()) && this.getDaysOfMonth(tmp.getFullYear(), tmp.getMonth()) > this.getDaysOfMonth(tmp.getFullYear(), tmp.getMonth()+1)){
+            tmp.setDate(this.getDaysOfMonth(tmp.getFullYear(), tmp.getMonth()+1));
+        }
         tmp.setMonth(tmp.getMonth()+1);
-        this.date = tmp;
+        this.date = new Date(tmp);
         //this.generateFields();
+    }
+
+    getDaysOfMonth(year, month): number {
+        return new Date(year, month+1, 0).getDate();
     }
 }

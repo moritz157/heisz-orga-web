@@ -1,11 +1,14 @@
 #calendarMain {
     display: flex;
     flex-wrap: wrap;
+    border-right: 1px solid #c5c5c5;
+    border-bottom: 1px solid #c5c5c5;
 }
 
 #calendarControls {
     display: flex;
     justify-content: center;
+    padding: 17px;
 }
 
 #calendarControls span{
@@ -18,13 +21,14 @@
 }
 
 .calendarDay {
+    border-left: 1px solid #c5c5c5;
+    border-top: 1px solid #c5c5c5;
     position: relative;
-    width: calc(100% / 7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 27px;
+    width: calc(100% / 7 - 6px);
+    height: 4.8em;
     cursor: pointer;
+    padding-left: 5px;
+    padding-top: 5px;
 }
 
 .calendarDay.header {
@@ -40,9 +44,15 @@
     text-align: center;
 }
 
-.calendarDay.selected span {
+.calendarDay.selected {
+    background-color: #f3f3f3;
+}
+
+.calendarDay.selected span:last-of-type {
     background-color: #ff69b0;
     border-radius: 19px;
-    padding: 6px;
+    padding: 4px;
     color: white;
+    display: block;
+    width: 18px;
 }

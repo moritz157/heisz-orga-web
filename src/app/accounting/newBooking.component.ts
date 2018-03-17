@@ -13,6 +13,8 @@ export class NewBookingComponent implements OnInit{
     private companys = [];
     private booking: Booking;
     private ready: Boolean = false;
+
+    private title = "Neue Buchung";
     constructor(private accountingService: AccountingService, private route: ActivatedRoute){
         this.companys = accountingService.getCompanys();
     }
@@ -21,6 +23,7 @@ export class NewBookingComponent implements OnInit{
         var id = this.route.snapshot.params['id'];
         console.log("Id:", id);
         if(id){
+            this.title = "Buchung bearbeiten";
             console.log("Loading booking...")
             this.accountingService.getBooking(id)
             .then((booking) => {
@@ -45,7 +48,11 @@ export class NewBookingComponent implements OnInit{
         console.log(this.booking);
     }
 
+    cancel() {
+        console.log("Cancel");
+    }
+
     compareCompanys(c1, c2){
-        return c1.id == c2.id;
+        return c1 && c2 ? c1.id === c2.id : c1 === c2;
     }
 }

@@ -1,10 +1,10 @@
-<h5>{{ _date }}</h5>
+<!--<h5>{{ _date }}</h5>-->
 <div id="calendarWrapper">
     <div id="calendarControls">
         <i (click)="monthBack()" class="material-icons">arrow_left</i><span>{{ monthNames[_date.getMonth()]}} {{_date.getFullYear()}}</span><i (click)="monthForward()" class="material-icons">arrow_right</i>
     </div>
     <div id="calendarMain">
-        <div class="calendarDay header">
+        <!--<div class="calendarDay header">
             <span>Mo</span>
         </div>
         <div class="calendarDay header">
@@ -24,8 +24,9 @@
         </div> 
         <div class="calendarDay header">
             <span>So</span>
-        </div>       
+        </div>       -->
         <div *ngFor="let day of fields" (click)="select(day)" [ngClass]="{'calendarDay':true,'pre':day.pre, 'selected':(day.selected)}">
+            <span>{{ day.dayOfWeek ?  day.dayOfWeek : ''}}</span><br *ngIf="day.dayOfWeek">
             <span>{{day.date}}</span>
         </div>
     </div>

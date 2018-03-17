@@ -12,6 +12,7 @@ export class AccountingComponent implements OnInit{
   @ViewChild(BaseChartDirective) chart: BaseChartDirective;
   private bookings: Booking[];
   private companys: Company[];
+  private invoices: Invoice[];
 
   private orderById=0;
   private orderByData = [
@@ -62,6 +63,10 @@ export class AccountingComponent implements OnInit{
       this.chart.chart.config.data.datasets = monthlyBalances['datasets'];
       this.chart.chart.update();
     });
+    this.accountingService.getInvoices()
+    .then((result) => {
+      this.invoices = result;
+    })
   }
 
   openBooking(booking) {
