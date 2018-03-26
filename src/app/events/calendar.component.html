@@ -28,6 +28,9 @@
         <div *ngFor="let day of fields" (click)="select(day)" [ngClass]="{'calendarDay':true,'pre':day.pre, 'selected':(day.selected)}">
             <span>{{ day.dayOfWeek ?  day.dayOfWeek : ''}}</span><br *ngIf="day.dayOfWeek">
             <span>{{day.date}}</span>
+            <div class="events">
+                <div *ngFor="let event of day.events" [ngClass]="'bg_'+event.color">{{ event.title }}</div>
+            </div>
         </div>
     </div>
 </div>

@@ -46,11 +46,13 @@ export class CalendarComponent implements OnInit{
             var daysMonthBefore = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
             console.log("monthBefore:", new Date(date.getFullYear(), date.getMonth(), 0),"daysMonthBefore:", daysMonthBefore);
             for(var i=0;i<preFields;i++){
-                this.fields.push({"pre":true,"date":daysMonthBefore-(preFields-i-1)});
+                var events = this.getEventsOfDate(new Date(date.getFullYear(), date.getMonth()-1, daysMonthBefore-(preFields-i-1)));
+                this.fields.push({"pre":true,"date":daysMonthBefore-(preFields-i-1), "events": events});
             }
             console.log("monthFields:", monthFields);
             for(var i=0;i<monthFields;i++){
-                this.fields.push({"pre":false,"date":i+1,"selected":false});
+                var events = this.getEventsOfDate(new Date(date.getFullYear(), date.getMonth(), i+1));
+                this.fields.push({"pre":false,"date":i+1,"selected":false, "events": events});
                 if(date.getDate() == i+1){
                     this.fields[this.fields.length-1]["selected"]=true;
 
@@ -62,7 +64,8 @@ export class CalendarComponent implements OnInit{
             var tmpDate = lastDateOfMonth;
             while(this.fields.length<42){
                 tmpDate.setDate(tmpDate.getDate() + 1);
-                this.fields.push({"pre":true,"date":tmpDate.getDate()});
+                var events = this.getEventsOfDate(tmpDate);
+                this.fields.push({"pre":true,"date":tmpDate.getDate(), "events": events});
             }
 
             console.log("Fields:", this.fields);
@@ -125,5 +128,16 @@ export class CalendarComponent implements OnInit{
 
     getDaysOfMonth(year, month): number {
         return new Date(year, month+1, 0).getDate();
+    }
+
+    getEventsOfDate(date: Date): Object[] {
+        var result = [];
+        if(date.getDate() == (new Date).getDate()){
+            result.push({
+                title: "Redaktionssitzung",
+                color: "blue"
+            })
+        }
+        return result;
     }
 }

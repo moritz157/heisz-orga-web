@@ -56,3 +56,16 @@
     display: block;
     width: 18px;
 }
+
+.calendarDay .events div {
+    position: relative;
+    overflow: hidden;
+    font-size: 0.75em;
+    border-radius: 2px;
+    color: white;
+    padding: 2px;
+}
+
+.calendarDay .events div.bg_blue {
+    background-color: #2962ff;
+}
