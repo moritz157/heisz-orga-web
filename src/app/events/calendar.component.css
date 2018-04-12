@@ -57,6 +57,10 @@
     width: 18px;
 }
 
+.calendarDay .events {
+    margin-right: 5px;
+}
+
 .calendarDay .events div {
     position: relative;
     overflow: hidden;

@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './routing/app-routing.module';
-
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -23,6 +22,7 @@ import { ChartsModule } from 'ng2-charts';
 import { AccountingService } from './accounting/accounting.service';
 import { AuthService } from './services/auth.service';
 import { EventService } from './services/event.service';
+import { ArticleService } from './services/article.service';
 
 import { OrderByPipe } from './pipes/orderBy.pipe';
 @NgModule({
@@ -44,7 +44,7 @@ import { OrderByPipe } from './pipes/orderBy.pipe';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     ChartsModule
   ],
@@ -52,7 +52,8 @@ import { OrderByPipe } from './pipes/orderBy.pipe';
     AccountingService,
     OrderByPipe,
     AuthService,
-    EventService
+    EventService,
+    ArticleService,
   ],
   bootstrap: [AppComponent]
 })

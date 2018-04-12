@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class MailsComponent{
   mails: Object[] = [
-    {from:"Matthias Hansen ab cdefghijklmnop", subject: "Schülerzeitung: Terminänderung"},
-    {from:"Matthias Hansen", subject: "Fwd: Druck"}
+    {id: "1626b993c8e7ec7d", from:"Matthias Hansen ab cdefghijklmnop", subject: "Schülerzeitung: Terminänderung"},
+    {id: "1626b993c8e7ec7d", from:"Matthias Hansen", subject: "Fwd: Druck"}
   ]
 
   constructor(){
@@ -20,6 +20,7 @@ export class MailsComponent{
   }
   
   openMail(mail): void {
-    console.log("Opening mail:", mail)
+    console.log("Opening mail:", mail);
+    window.open("https://mail.google.com/mail/u/0/#all/"+mail.id);
   }
 }

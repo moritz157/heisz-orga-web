@@ -7,7 +7,7 @@ export class AuthService {
     public session: Session;
     private setDefaultUser: Boolean = true;
     private defaultUser: User = new User({"firstname":"Moritz", "lastname":"Ahrens", "email":"moritz.ahrens2@gmail.com", "id":1});
-    private defaultSession: Session = new Session({"id":"session_no_000001", "user_id":1}); 
+    private defaultSession: Session = new Session({"id":"7dbe1f224b6a0554949a3e7c15db82ee755953997eaa8c2727b4e5c8c7db8e9b", "user_id":1}); 
 
     constructor(){
         if(window.localStorage.getItem("session_id")){
@@ -43,6 +43,13 @@ export class AuthService {
     public getDataFromSessionId(session_id){
         return {"user": this.defaultUser, "session": this.defaultSession}
     }
+
+    public sampleUsers(): User[] { 
+        return([
+            new User({"firstname":"Max", "lastname":"Mustermann", "email":"max.mustermann@test.de", id: 1}),
+            new User({"firstname":"Erika", "lastname":"Mustermann", "email":"erika.mustermann@test.de", id: 2})
+        ]);
+    }
 }
 
 export class User {
@@ -66,12 +73,19 @@ export class User {
 
     public generateAvatar(): String {
         const colors = ["#c62828", "#ad1457", "#6a1b9a", "#4527a0", "#283593", "#1565c0", "#0277bd", "#00838f", "#2e7d32", "#558b2f", "#9e9d24", "#f9a825", "#ff8f00", "#ef6c00", "#d84315"];
-        return "https://dummyimage.com/60x60/"+colors[Math.round(Math.random() * colors.length)].substr(1)+"/ffffff&text="+this.firstname[0]+this.lastname[0];
+        return "https://dummyimage.com/60x60/"+colors[Math.round(Math.random() * (colors.length - 1))].substr(1)+"/ffffff&text="+this.firstname[0]+this.lastname[0];
+    }
+
+    public sampleUsers(): User[] { 
+        return([
+            new User({"firstname":"Max", "lastname":"Mustermann", "email":"max.mustermann@test.de", id: 1}),
+            new User({"firstname":"Erika", "lastname":"Mustermann", "email":"erika.mustermann@test.de", id: 2})
+        ]);
     }
 }
 
 export class Session {
-    public id: String;
+    public id: string;
     public user_id: Number;
     public created: number;
     public expires: number;
@@ -86,7 +100,7 @@ export class Session {
         //console.log("Creating session: ", this.created, expireTime);
     }
 
-    public generateSessionId(): Promise<String> {
+    public generateSessionId(): Promise<string> {
         return new Promise(function(resolve, reject){
             resolve("");
         })

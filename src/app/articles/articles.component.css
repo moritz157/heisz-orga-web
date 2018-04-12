@@ -1,0 +1,95 @@
+.card-wrapper {
+    margin-top: 10px;
+}
+
+div.article-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.ressort {
+    color: white;
+    background-color: black;
+    border-radius: 3px;
+    padding: 4px;
+}
+
+.ressort.ress-Heiszes.vom.Heilwig {
+    background-color: var(--HeiszesVomHeilwig);
+}
+
+.ressort.ress-Heiszer.Scheisz {
+    background-color: var(--HeiszerScheisz);
+}
+
+.ressort.ress-Platzhalter {
+    background-color: var(--Platzhalter);
+}
+
+.ressort.ress-Anzeige {
+    background-color: var(--Anzeige);
+}
+
+.article-info {
+    display: flex;
+}
+
+.article_status, .layout_status {
+    position: relative;
+    width: 50%;
+}
+
+div.status_line {
+    margin: 5px;
+}
+
+.status {
+    border-radius: 3px;
+    padding: 4px;
+}
+
+
+.status_0 {
+    background-color: white;
+    color: black;
+}
+.status_0:after {
+    content: 'Nicht in Arbeit';
+}
+
+
+.status_1 {
+    color: white;
+    background-color: #cc0000;
+}
+.status_1:after {
+    content: 'Geändert';
+}
+
+
+.status_2 {
+    color: white;
+    background-color: #f1c232;
+}
+.status_2:after {
+    content: 'In Arbeit';
+}
+
+
+.status_3 {
+    color: white;
+    background-color: #5ecb30;
+}
+.status_3:after {
+    content: 'Fast fertig';
+}
+
+
+.status_4 {
+    color: white;
+    background-color: #499b26;
+}
+.status_4:after {
+    content: 'Fertig';
+}

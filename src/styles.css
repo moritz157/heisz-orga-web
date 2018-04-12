@@ -226,6 +226,13 @@ events {
     height: 100%;
 }
 
+:root {
+    --HeiszesVomHeilwig: #ea9999;
+    --HeiszerScheisz: #674ea7;
+    --Platzhalter: white;
+    --Anzeige: #f6b26b;
+}
+
 @media (max-width: 672px) {
     sidenav {
         height: 57px;

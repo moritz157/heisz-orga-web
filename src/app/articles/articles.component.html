@@ -1,1 +1,19 @@
-Artikel
+<h1 class="page-title">Artikel</h1>
+<div *ngFor="let article of articles" class="card-wrapper w100 article">
+    <!--<h3 class="card-title">{{ article.title }}</h3>-->
+    <div class="card" id="article-main">
+        <div class="article-title"><h3>{{ article.name }}</h3><span class="ressort" [ngClass]="'ress-' + article.ressort">{{ article.ressort }}</span></div>
+        <div class="article-info">
+            <div class="article_status">
+                <div class="status_line">Artikel: <span class="status" [ngClass]="'status_' + article.artikel"></span></div>
+                <div class="status_line">Autor 1: {{ article.autor_1.firstname }}</div>
+                <div class="status_line">Autor 2: {{ article.autor_2.firstname }}</div>
+            </div>
+            <div class="layout_status">
+                <div class="status_line">Layout: <span class="status" [ngClass]="'status_' + article.layout"></span></div>
+                <div class="status_line">Layouter 1: {{ article.layouter_1.firstname }}</div>
+                <div class="status_line">Layouter 2: {{ article.layouter_2.firstname }}</div>
+            </div>
+        </div>
+    </div>
+</div>
